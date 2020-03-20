@@ -68,28 +68,29 @@ public class tictactoe {
             draw_board();
             System.out.println("Enter a move (PieceLocation ex. X3): ");
             move = sc.nextLine();
-            if(move.length() > 2){
-                System.out.println(">>>>>>>>>>>>>>>>>>>>>>");
-                System.out.println("Invalid input format.");
-                System.out.println(">>>>>>>>>>>>>>>>>>>>>>");
-                continue;
-            }
             if(move.charAt(0) == 'X' || move.charAt(0) == 'O'){
                 try {
+                    if(move.length() != 2){
+                        System.out.println("***************\n");
+                        System.out.println("Invalid input.");
+                        System.out.println("\n***************");
+                        continue;
+                    }
                     location = Integer.parseInt(move.substring(1, 2)) - 1;
+                    piece = move.charAt(0);
+                    board[location].occupant = piece;
                 } catch (NumberFormatException nfe) {
-                    System.out.println(">>>>>>>>>>>>>>>>>>>>>>");
-                    System.out.println("Invalid location.");
-                    System.out.println(">>>>>>>>>>>>>>>>>>>>>>");
-                    continue;
+                    System.out.println("***************\n");
+                        System.out.println("Invalid location.");
+                        System.out.println("\n***************");
                 }
-                piece = move.charAt(0);
-                board[location].occupant = piece;
+                
+                
             }else{
-                System.out.println(">>>>>>>>>>>>>>>>>>>>>>");
+                System.out.println("***************\n");
                 System.out.println("Invalid input.");
-                System.out.println(">>>>>>>>>>>>>>>>>>>>>>");
-            }
+                System.out.println("\n***************");
+            }  
         }
     }
 
