@@ -65,18 +65,17 @@ public class tictactoe {
         char piece = ' ';
 
         while(!game_over){
+            draw_board();
             System.out.println("Enter a move (PieceLocation ex. X3): ");
             move = sc.nextLine();
             location = Integer.parseInt(move.substring(1)) - 1;
             piece = move.charAt(0);
             board[location].occupant = piece;
-            draw_board();
         }
     }
 
     public static void main(String[] args) {
         tictactoe t = new tictactoe();
-        t.draw_board();
         t.game_loop();
     }
 }
