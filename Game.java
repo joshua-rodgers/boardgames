@@ -28,6 +28,7 @@ class Game_Surface extends Panel {
     public Game_Surface(State s){
         this.state = s;
     }
+
     public void paint(Graphics g){
         board = state.get_board();
         short ypos = 95;
@@ -37,8 +38,7 @@ class Game_Surface extends Panel {
         for(String row : board){
             g.drawString(row, 120, ypos);
             ypos += 22;
-        }
-        
+        } 
     }
 }
 
@@ -54,9 +54,11 @@ class State {
             board[i].number = i;
             board[i].number++;
         }
+
         for(short i = 0; i < board_strings.length; i++){
             board_strings[i] = new String();
         }
+
         build_board();
     }
 
@@ -79,7 +81,6 @@ class State {
                     row++;
                     column = 1;
                 }
-                
             }
         }
     }
@@ -87,7 +88,6 @@ class State {
     public String[] get_board(){
         return board_strings;
     }
-
 }
 
 class Space {
